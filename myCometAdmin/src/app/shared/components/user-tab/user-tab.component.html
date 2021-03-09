@@ -1,0 +1,32 @@
+<div>
+    <mat-card>
+        <button (click)="addUser()" mat-fab class="delete-fab" aria-label="Example icon button with a delete icon">
+            <mat-icon class="add-icon">add</mat-icon>
+          </button>
+        <div class="inline title">
+            <h1>My users</h1>
+            <h2>
+                <span class="counter">{{users.length}}</span>
+                <span class="material-icons">
+                    how_to_reg
+                </span>
+            </h2>
+        </div>
+        <div class="table-zone">
+            <div *ngFor="let user of users">
+                <div class="inline table-row">
+                    <div class="inline user-data"><b>{{user.lastname}}</b></div>
+                    <div class="inline user-data">{{user.firstname}}</div>
+                    <div [class.admin]="user.isAdmin" class="inline admin-cell">
+                        <span class="material-icons" #tooltip="matTooltip" matTooltip="Is an admin ?"
+                            [matTooltipPosition]="'below'" matTooltipHideDelay="100">
+                            admin_panel_settings
+                        </span>
+                    </div>
+                    <span class="material-icons phone" (click)="openContact()">call</span>
+                    <span class="material-icons phone" (click)="openUser(user._id)">mode_edit</span>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>

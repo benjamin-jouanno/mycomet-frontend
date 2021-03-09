@@ -1,0 +1,36 @@
+<div class="content">
+    <mat-card>
+        <table mat-table [dataSource]="users" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="firstname">
+              <th mat-header-cell *matHeaderCellDef> Firstname </th>
+              <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="lastname">
+              <th mat-header-cell *matHeaderCellDef> Lastname </th>
+              <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="commet">
+              <th mat-header-cell *matHeaderCellDef> commet </th>
+              <td mat-cell *matCellDef="let element"> {{element.cometId}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="isAdmin">
+              <th mat-header-cell *matHeaderCellDef> is an admin </th>
+              <td mat-cell *matCellDef="let element"> {{element.isAdmin}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </mat-card>
+</div>

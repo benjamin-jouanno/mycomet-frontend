@@ -1,0 +1,41 @@
+<div class="centered">
+    <mat-card>
+      <button mat-fab color="warn" (click)="delete()" class="delete-fab" aria-label="Example icon button with a delete icon">
+        <mat-icon>delete</mat-icon>
+      </button>
+        <form [formGroup]="userForm">
+            <div class="form-row">
+            <mat-form-field class="example-form-field">
+                <mat-label>Email</mat-label>
+                <input [disabled]="!isEdit" matInput type="email" formControlName="email">
+              </mat-form-field>
+              <mat-form-field class="example-form-field">
+                <mat-label>Firstname</mat-label>
+                <input matInput type="text" formControlName="firstname">
+              </mat-form-field>
+              <mat-form-field class="example-form-field">
+                <mat-label>Lastname</mat-label>
+                <input matInput type="text" formControlName="lastname">
+              </mat-form-field>
+            </div>
+            <div class="form-row">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Phone number</mat-label>
+                    <span matPrefix>+33 &nbsp;</span>
+                    <input matInput type="number" formControlName="phoneNbr" placeholder="6-55-55-55-66">
+                  </mat-form-field>
+                  <mat-form-field class="example-form-field">
+                    <mat-label>Comet</mat-label>
+                    <input matInput type="text" formControlName="cometId">
+                  </mat-form-field>
+                  <mat-slide-toggle class="switch" color="warn" formControlName="isAdmin">Administrator</mat-slide-toggle>
+                </div>
+        </form>
+        <button mat-raised-button class="custom-btn-back left" [routerLink]="['/dashboard']">Back</button>
+        <div class="buttons-center">
+            <button *ngIf="isEdit" mat-raised-button class="custom-btn" (click)="update()">Update</button>
+            <button *ngIf="isEdit" mat-raised-button color="warn" (click)="changeEdit()">Cancel</button>
+            <button *ngIf="!isEdit" mat-raised-button color="primary" (click)="changeEdit()">Edit</button>
+        </div>
+    </mat-card>
+</div>

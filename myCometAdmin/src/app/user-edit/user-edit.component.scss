@@ -1,0 +1,49 @@
+mat-card {
+    width: 60%;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    margin-top: 2em;
+}
+
+.example-form-field {
+  width: 250px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.form-row {
+  text-align: center;
+}
+
+.buttons-center {
+  float: right;
+}
+
+.custom-btn {
+  background-color: #F26E28;
+  margin-right: 0.5em;
+  color: white;
+}
+
+.custom-btn-back{
+  color: white;
+  background-color: #616161;
+}
+
+.switch {
+  color:#F26E28
+}
+
+.left {
+  float: left !important;
+}
+
+.delete-fab {
+  position: absolute;
+    right: -1.5em;
+    top: -1.5em;
+}

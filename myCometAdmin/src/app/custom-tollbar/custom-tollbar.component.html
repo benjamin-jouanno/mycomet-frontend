@@ -1,0 +1,17 @@
+<mat-toolbar class="toolBar" *ngIf="toolbarService.isDisplayed">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>MyComet' admin panel</span>
+    <span class="example-spacer"></span>
+    <button mat-button [routerLink]="['/users']">Users</button>
+    <button mat-button>Comets</button>
+    <button mat-button>Meetups</button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+    #tooltip="matTooltip"
+          matTooltip="Logout"
+          [matTooltipPosition]="'below'"
+          matTooltipHideDelay="100000">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>

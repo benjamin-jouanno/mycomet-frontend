@@ -1,0 +1,43 @@
+<div class="centered">
+    <mat-card>
+        <form [formGroup]="userForm">
+            <div class="form-row">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="example-form-field">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password">
+                </mat-form-field>
+                <mat-form-field class="example-form-field">
+                    <mat-label>Firstname</mat-label>
+                    <input matInput type="text" formControlName="firstname">
+                </mat-form-field>
+                <mat-form-field class="example-form-field">
+                    <mat-label>Lastname</mat-label>
+                    <input matInput type="text" formControlName="lastname">
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Phone number</mat-label>
+                    <span matPrefix>+33 &nbsp;</span>
+                    <input matInput type="number" formControlName="phoneNbr" placeholder="6-55-55-55-66">
+                </mat-form-field>
+                <mat-form-field class="example-form-field">
+                    <mat-label>Comet</mat-label>
+                    <input matInput type="text" formControlName="cometId">
+                </mat-form-field>
+                <div>
+                    <mat-slide-toggle class="switch" color="warn" formControlName="isAdmin">Administrator
+                    </mat-slide-toggle>
+                </div>
+            </div>
+        </form>
+        <button mat-raised-button class="custom-btn-back left" mat-dialog-close>cancel</button>
+        <div class="buttons-center">
+            <button mat-raised-button class="custom-btn" (click)="addUser()">Add user</button>
+        </div>
+    </mat-card>
+</div>
