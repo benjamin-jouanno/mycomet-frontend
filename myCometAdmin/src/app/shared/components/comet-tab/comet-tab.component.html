@@ -1,0 +1,30 @@
+<div>
+    <mat-card>
+        <button mat-fab class="delete-fab" aria-label="Example icon button with a delete icon">
+            <mat-icon class="add-icon">add</mat-icon>
+          </button>
+          <div class="inline title">
+            <h1>My comets</h1>
+            <h2>
+                <span class="counter">{{comets.length}}</span>
+                <span class="material-icons">
+                    home_work
+                </span>
+            </h2>
+        </div>
+        <div class="table-zone">
+            <div *ngFor="let comet of comets">
+                <div class="inline table-row">
+                    <span><b>{{comet.name}}</b></span>
+                    <div class="inline admin-cell">
+                        <span class="material-icons" #tooltip="matTooltip" matTooltip="available credits"
+                            [matTooltipPosition]="'below'" matTooltipHideDelay="100">
+                            stars
+                        </span>
+                    </div>
+                    <span class="inline admin-cell credits">{{comet.availableBudget}}</span>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>

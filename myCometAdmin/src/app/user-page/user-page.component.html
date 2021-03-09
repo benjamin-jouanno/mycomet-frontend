@@ -53,5 +53,8 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
+          <button (click)="addUser()" mat-fab class="delete-fab" aria-label="Example icon button with a delete icon">
+            <mat-icon class="add-icon">add</mat-icon>
+          </button>
     </mat-card>
 </div>

@@ -1,0 +1,66 @@
+h1, h2 {
+    color:#F26E28;
+    display: inline-block;
+}
+
+h2 {
+    float: right;
+    vertical-align: middle;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.title {
+width: 100%;
+}
+
+.material-icons {
+    font-size: 2em;
+}
+
+.delete-fab {
+    position: absolute;
+      right: -1.5em;
+      top: -1.5em;
+      background-color: #F26E28;
+  }
+
+  .add-icon {
+      font-size: 3em;
+      position: absolute;
+      margin-top: -15px;
+      top: 23px;
+      right: 24px;
+  }
+
+  .table-row {
+    width: 100%;
+    padding-left: 0.5em;
+    cursor: pointer;
+}
+
+.table-row:hover {
+    background-color: rgba(209, 209, 209, 0.87);;
+}
+
+  .counter {
+    position: absolute;
+    margin-top: 0.5em;
+    margin-left: -0.7em;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.admin-cell {
+    float: right;
+    margin-top: -0em;
+    color:#F26E28;
+}
+
+.credits {
+    margin-top: 0.4em;
+}

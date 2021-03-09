@@ -6,6 +6,8 @@ import { UserService } from '../shared/services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SnackService } from '../shared/services/snack.service';
 import Swal from 'sweetalert2'
+import { Comet } from '../shared/models/cometModel';
+import { CometService } from '../shared/services/comet.service';
 
 
 
@@ -17,6 +19,7 @@ import Swal from 'sweetalert2'
 export class UserEditComponent implements OnInit {
 
   isEdit: boolean = false;
+  comets: Comet[] = [];
 
   userForm = new FormGroup ({
     email: new FormControl('',[
@@ -34,11 +37,15 @@ export class UserEditComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private snackService: SnackService,
-    private _location: Location) { }
+    private _location: Location,
+    private cometService: CometService) { }
   userId: number;
   user: User;
   ngOnInit() {
     this.userForm.disable();
+    this.cometService.getAllComets().subscribe(res => {
+      this.comets = res;
+    });
     this.activatedRoute.params.subscribe( params => this.userId = params.id );
     this.userService.getUser(this.userId).subscribe(res => {
       this.user = res;

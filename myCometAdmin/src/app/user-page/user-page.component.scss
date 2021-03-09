@@ -31,3 +31,18 @@ table {
     width: 30px;
     color:#F26E28 !important;
 }
+
+.add-icon {
+    font-size: 3em;
+    position: absolute;
+    margin-top: -15px;
+    top: 23px;
+    right: 24px;
+}
+
+.delete-fab {
+    position: absolute;
+      right: 1.5em;
+      bottom: 1.5em;
+      background-color: #F26E28;
+  }

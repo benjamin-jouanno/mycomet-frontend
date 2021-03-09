@@ -16,6 +16,7 @@ import { SnackbarComponent } from './shared/components/snackbar/snackbar.compone
 import { BottomContactComponent } from './shared/components/bottom-contact/bottom-contact.component';
 import { AddUserModalComponent } from './shared/components/add-user-modal/add-user-modal.component';
 import { UserPageComponent } from './user-page/user-page.component';
+import { CometTabComponent } from './shared/components/comet-tab/comet-tab.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { UserPageComponent } from './user-page/user-page.component';
     SnackbarComponent,
     BottomContactComponent,
     AddUserModalComponent,
-    UserPageComponent
+    UserPageComponent,
+    CometTabComponent
   ],
   imports: [
     BrowserModule,

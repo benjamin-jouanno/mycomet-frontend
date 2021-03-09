@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 import { User } from '../shared/models/userModel';
+import { ModalService } from '../shared/services/modal.service';
 import { UserService } from '../shared/services/user.service';
 
 @Component({
@@ -12,7 +14,8 @@ import { UserService } from '../shared/services/user.service';
 export class UserPageComponent implements OnInit {
 
   constructor(private userService: UserService,
-      private router: Router) { }
+      private router: Router,
+      private modalService: ModalService) { }
 
   public users: User[] = [];
   dataSource: any;
@@ -21,6 +24,9 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
+    this.modalService.dialog.afterAllClosed.pipe(
+      tap(() => this.refreshData())
+    ).subscribe();
   }
 
   getUser(){
@@ -40,5 +46,13 @@ export class UserPageComponent implements OnInit {
 
   openUser(userid: string) {
     this.router.navigateByUrl('/user/' + userid);
+  }
+
+  addUser() {
+    this.modalService.openAddUser();
+  }
+
+  refreshData() {
+    this.getUser();
   }
 }
