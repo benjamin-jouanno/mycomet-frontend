@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import {Location} from '@angular/common';
 import { User } from '../shared/models/userModel';
 import { UserService } from '../shared/services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -32,7 +33,8 @@ export class UserEditComponent implements OnInit {
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
-    private snackService: SnackService) { }
+    private snackService: SnackService,
+    private _location: Location) { }
   userId: number;
   user: User;
   ngOnInit() {
@@ -68,6 +70,10 @@ export class UserEditComponent implements OnInit {
     }
   }
 
+  back() {
+    this._location.back();
+  }
+
   delete() {
     Swal.fire({
       title: 'Are you sure?',
@@ -80,7 +86,7 @@ export class UserEditComponent implements OnInit {
       if (result.value) {
         this.userService.deleteUser(this.userId).subscribe(res => {
           this.snackService.openSnackBar();
-          this.router.navigateByUrl('/dashboard');
+          this._location.back();
         });
       // For more information about handling dismissals please visit
       // https://sweetalert2.github.io/#handling-dismissals

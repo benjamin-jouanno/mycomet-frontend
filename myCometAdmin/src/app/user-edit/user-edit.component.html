@@ -31,7 +31,7 @@
                   <mat-slide-toggle class="switch" color="warn" formControlName="isAdmin">Administrator</mat-slide-toggle>
                 </div>
         </form>
-        <button mat-raised-button class="custom-btn-back left" [routerLink]="['/dashboard']">Back</button>
+        <button mat-raised-button class="custom-btn-back left" (click)="back()">Back</button>
         <div class="buttons-center">
             <button *ngIf="isEdit" mat-raised-button class="custom-btn" (click)="update()">Update</button>
             <button *ngIf="isEdit" mat-raised-button color="warn" (click)="changeEdit()">Cancel</button>

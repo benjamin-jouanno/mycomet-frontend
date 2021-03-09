@@ -9,3 +9,25 @@ table {
     width: 100%;
     box-shadow: none !important;
   }
+
+  .admin-cell {
+    float: right;
+    margin-top: -0em;
+    color: rgba(184, 184, 184, 0.87);
+}
+
+.admin {
+    color:#F26E28 !important;
+}
+
+.email {
+    color: #F26E28;
+}
+
+.phone {
+    cursor: pointer;
+    font-size: x-large;
+    float: right;
+    width: 30px;
+    color:#F26E28 !important;
+}
