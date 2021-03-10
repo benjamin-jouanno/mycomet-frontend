@@ -65,7 +65,7 @@
                     <td mat-cell *matCellDef="let element">
                         <span class="material-icons open-user" (click)="openUser(element._id)">search</span>
                         <span class="material-icons open-user" (click)="removeUserFromComet(element._id)">delete</span>
-                        <span class="material-icons" style="color: rgb(248, 211, 0);" #tooltip="matTooltip"
+                        <span [class.white]="element._id != this.comet.leadUserId" class="material-icons is-lead" #tooltip="matTooltip"
                             matTooltip="Leader" [matTooltipPosition]="'below'"
                             matTooltipHideDelay="1000">admin_panel_settings</span>
                     </td>

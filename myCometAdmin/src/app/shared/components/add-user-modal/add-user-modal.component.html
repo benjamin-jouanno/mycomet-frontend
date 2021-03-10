@@ -27,7 +27,11 @@
                 </mat-form-field>
                 <mat-form-field class="example-form-field">
                     <mat-label>Comet</mat-label>
-                    <input matInput type="text" formControlName="cometId">
+                    <mat-select formControlName="cometId">
+                        <div *ngFor="let item of comets">
+                        <mat-option value={{item._id}}>{{item.name}}</mat-option>
+                      </div>
+                      </mat-select>
                 </mat-form-field>
                 <div>
                     <mat-slide-toggle class="switch" color="warn" formControlName="isAdmin">Administrator

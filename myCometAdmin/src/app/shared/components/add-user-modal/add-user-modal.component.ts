@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Comet } from '../../models/cometModel';
+import { CometService } from '../../services/comet.service';
 import { ModalService } from '../../services/modal.service';
 import { SnackService } from '../../services/snack.service';
 import { UserService } from '../../services/user.service';
@@ -11,6 +13,7 @@ import { UserService } from '../../services/user.service';
 })
 export class AddUserModalComponent implements OnInit {
 
+  comets: Comet[] = [];
   userForm = new FormGroup ({
     email: new FormControl('',[
       Validators.required,
@@ -25,9 +28,13 @@ export class AddUserModalComponent implements OnInit {
 
   constructor(private userService: UserService,
       private snackService: SnackService,
-      private modalService: ModalService) { }
+      private modalService: ModalService,
+      private cometService: CometService) { }
 
   ngOnInit() {
+    this.cometService.getAllComets().subscribe(res => {
+      this.comets = res;
+    });
   }
 
   addUser(): boolean {
