@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
+import { Comet } from '../shared/models/cometModel';
 import { User } from '../shared/models/userModel';
+import { CometService } from '../shared/services/comet.service';
 import { ModalService } from '../shared/services/modal.service';
 import { UserService } from '../shared/services/user.service';
 
@@ -15,18 +17,27 @@ export class UserPageComponent implements OnInit {
 
   constructor(private userService: UserService,
       private router: Router,
-      private modalService: ModalService) { }
+      private modalService: ModalService,
+      private cometService: CometService) { }
 
   public users: User[] = [];
   dataSource: any;
+  comets: Comet[];
 
   displayedColumns: string[] = ['firstname', 'lastname', 'commet', 'email', 'phoneNbr' ,'isAdmin'];
 
   ngOnInit() {
     this.getUser();
+    this.getComet();
     this.modalService.dialog.afterAllClosed.pipe(
       tap(() => this.refreshData())
     ).subscribe();
+  }
+
+  getComet(){
+    this.cometService.getAllComets().subscribe(res => {
+      this.comets = res;
+    })
   }
 
   getUser(){
@@ -54,5 +65,9 @@ export class UserPageComponent implements OnInit {
 
   refreshData() {
     this.getUser();
+  }
+
+  displayComet(id): string {
+    return this.comets.find(item => item._id === id).name;
   }
 }

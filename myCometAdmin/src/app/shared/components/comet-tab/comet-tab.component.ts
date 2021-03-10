@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { Comet } from '../../models/cometModel';
 import { CometService } from '../../services/comet.service';
@@ -12,7 +13,8 @@ import { ModalService } from '../../services/modal.service';
 export class CometTabComponent implements OnInit {
 
   constructor(private cometService: CometService,
-      private modalService: ModalService) { }
+      private modalService: ModalService,
+      private router: Router) { }
 
   comets: Comet[] = [];
 
@@ -35,6 +37,10 @@ export class CometTabComponent implements OnInit {
 
   refreshData() {
 
+  }
+
+  openCometEdit(cometId) {
+    this.router.navigateByUrl('/comet/' + cometId);
   }
 
 }

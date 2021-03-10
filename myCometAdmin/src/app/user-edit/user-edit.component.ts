@@ -102,4 +102,8 @@ export class UserEditComponent implements OnInit {
     })
   }
 
+  openComet() {
+    this.router.navigateByUrl('/comet/' + this.user.cometId);
+  }
+
 }

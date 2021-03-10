@@ -38,6 +38,7 @@
         <div class="buttons-center">
             <button *ngIf="isEdit" mat-raised-button class="custom-btn" (click)="update()">Update</button>
             <button *ngIf="isEdit" mat-raised-button color="warn" (click)="changeEdit()">Cancel</button>
+            <button *ngIf="!isEdit" mat-raised-button class="comet" (click)="openComet()">View comet</button>
             <button *ngIf="!isEdit" mat-raised-button color="primary" (click)="changeEdit()">Edit</button>
         </div>
     </mat-card>

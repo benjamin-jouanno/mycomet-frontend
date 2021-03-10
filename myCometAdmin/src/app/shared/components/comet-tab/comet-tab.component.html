@@ -14,7 +14,7 @@
         </div>
         <div class="table-zone">
             <div *ngFor="let comet of comets">
-                <div class="inline table-row">
+                <div (click)="openCometEdit(comet._id)" class="inline table-row">
                     <span class="user-data"><b>{{comet.name}}</b></span>
                     <div class="inline admin-cell">
                         <span class="material-icons" #tooltip="matTooltip" matTooltip="available credits"

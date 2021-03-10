@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute, ParamMap } from '@angular/router';
+import { CometEditComponent } from './comet-edit/comet-edit.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'user/:id', component: UserEditComponent},
   {path: 'users', component: UserPageComponent},
+  {path: 'comet/:id', component: CometEditComponent},
   {path: '**', component: DashboardComponent}
 ];
 
