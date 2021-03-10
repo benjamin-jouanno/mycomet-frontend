@@ -1,6 +1,6 @@
 <div class="centered">
     <mat-card>
-        <form [formGroup]="cometForm">
+        <form *ngIf="!tempCometId" [formGroup]="cometForm">
             <div class="form-row">
                 <mat-form-field class="example-form-field">
                     <mat-label>Name</mat-label>
@@ -13,7 +13,7 @@
                 </mat-form-field>
             </div>
         </form>
-        <form [formGroup]="cometForm">
+        <form *ngIf="tempCometId" [formGroup]="userForm">
             <div class="form-row">
                 <mat-form-field class="example-form-field">
                     <mat-label>Lead user</mat-label>
@@ -35,9 +35,11 @@
                 </mat-form-field>
             </div>
         </form>
-        <button mat-raised-button class="custom-btn-back left" mat-dialog-close>cancel</button>
+        <button mat-raised-button *ngIf="!tempCometId" class="custom-btn-back left" mat-dialog-close>cancel</button>
+        <button mat-raised-button *ngIf="tempCometId" class="custom-btn-back left" (click)="abort()">cancel</button>
         <div class="buttons-center">
-            <button mat-raised-button class="custom-btn" (click)="addComet()">Add new comet</button>
+            <button mat-raised-button *ngIf="!tempCometId" class="custom-btn" (click)="addComet()">Add new comet</button>
+            <button mat-raised-button *ngIf="tempCometId" class="custom-btn" (click)="addUsers()">Add users</button>
         </div>
     </mat-card>
 </div>

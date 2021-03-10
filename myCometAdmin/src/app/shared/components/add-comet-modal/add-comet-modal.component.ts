@@ -27,8 +27,10 @@ export class AddCometModalComponent implements OnInit {
     cometForm = new FormGroup ({
     name: new FormControl('', [Validators.required]),
     availableBudget: new FormControl('0', [Validators.required]),
-    leadUserId: new FormControl('', [Validators.required]),
+  });
+  userForm = new FormGroup ({
     userFilter: new FormControl('', [Validators.required]),
+    leadUserId: new FormControl('0', [Validators.required])
   });
 
   ngOnInit() {
@@ -36,7 +38,7 @@ export class AddCometModalComponent implements OnInit {
       this.users = res;
       this.searchUsers = this.users;
     });
-    this.cometForm.controls.userFilter.valueChanges.pipe(
+    this.userForm.controls.userFilter.valueChanges.pipe(
       tap((filter) => {
 
         this.searchUsers = this.users.filter((user) => user.firstname.includes(filter)
@@ -44,23 +46,34 @@ export class AddCometModalComponent implements OnInit {
           || (user.firstname + '' + user.lastname).includes(filter));
       })
     ).subscribe();
-    this.cometForm.controls.leadUserId.valueChanges.pipe(
-      tap((leadUser) => this.onLeadChange(leadUser))
-    ).subscribe();
   }
 
   addComet() {
+    const tempComet = this.cometForm.getRawValue();
+    this.cometService.createComet(tempComet).subscribe(res => {
+      this.tempCometId = res._id;
+    })
+  }
+
+  addUsers() {
+    const tempUser = this.userForm.getRawValue()
+    delete(tempUser.userFilter);
+    this.userService.updateUser(tempUser.leadUserId, {cometId: this.tempCometId}).subscribe(res => {
+      this.snackService.openSnackBar();
+      this.modalService.closeAll();
+    });
+    this.cometService.updateComet(this.tempCometId, {leadUserId: tempUser.leadUserId}).subscribe(res => {
+      this.snackService.openSnackBar();
+      this.modalService.closeAll();
+    });
 
   }
 
-  onLeadChange(newLead) {
-    if (this.tempCometId )
-    if (this.previousLeadIs != (null || '')) {
-
+  abort() {
+    if (this.tempCometId) {
+      this.cometService.deleteComet(this.tempCometId).subscribe();
+      this.modalService.closeAll();
     }
-    this.userService.updateUser(newLead, {cometId: this.tempCometId}).subscribe(res => {
-      this.previousLeadIs = newLead;
-    })
   }
 
 }
