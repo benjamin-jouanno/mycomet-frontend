@@ -1,7 +1,7 @@
 <div>
     <mat-card>
         <button mat-fab class="delete-fab" aria-label="Example icon button with a delete icon">
-            <mat-icon class="add-icon">add</mat-icon>
+            <mat-icon (click) ="addComet()" class="add-icon">add</mat-icon>
           </button>
           <div class="inline title">
             <h1>My comets</h1>
@@ -15,7 +15,7 @@
         <div class="table-zone">
             <div *ngFor="let comet of comets">
                 <div class="inline table-row">
-                    <span><b>{{comet.name}}</b></span>
+                    <span class="user-data"><b>{{comet.name}}</b></span>
                     <div class="inline admin-cell">
                         <span class="material-icons" #tooltip="matTooltip" matTooltip="available credits"
                             [matTooltipPosition]="'below'" matTooltipHideDelay="100">

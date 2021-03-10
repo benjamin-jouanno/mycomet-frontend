@@ -1,0 +1,43 @@
+<div class="centered">
+    <mat-card>
+        <form [formGroup]="cometForm">
+            <div class="form-row">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="test" formControlName="name">
+                </mat-form-field>
+                <mat-form-field class="example-form-field">
+                    <mat-label>Available budget</mat-label>
+                    <input matInput type="number" formControlName="availableBudget">
+                    <mat-icon class="suffix" matSuffix>star_rate</mat-icon>
+                </mat-form-field>
+            </div>
+        </form>
+        <form [formGroup]="cometForm">
+            <div class="form-row">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Lead user</mat-label>
+                    <mat-select formControlName="leadUserId">
+                        <mat-option>
+                        <ngx-mat-select-search
+                        formControlName="userFilter"
+                       placeholderLabel="Find user..." 
+                       noEntriesFoundLabel="'no matching user found'"></ngx-mat-select-search>
+                    </mat-option>
+                        <mat-option *ngFor="let item of searchUsers" [value]="item._id">
+                          {{item.firstname + ' ' + item.lastname}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-form-field">
+                    <mat-label>users</mat-label>
+                    <input matInput type="text">
+                </mat-form-field>
+            </div>
+        </form>
+        <button mat-raised-button class="custom-btn-back left" mat-dialog-close>cancel</button>
+        <div class="buttons-center">
+            <button mat-raised-button class="custom-btn" (click)="addComet()">Add new comet</button>
+        </div>
+    </mat-card>
+</div>

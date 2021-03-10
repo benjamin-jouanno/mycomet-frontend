@@ -17,6 +17,8 @@ import { BottomContactComponent } from './shared/components/bottom-contact/botto
 import { AddUserModalComponent } from './shared/components/add-user-modal/add-user-modal.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { CometTabComponent } from './shared/components/comet-tab/comet-tab.component';
+import { AddCometModalComponent } from './shared/components/add-comet-modal/add-comet-modal.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { CometTabComponent } from './shared/components/comet-tab/comet-tab.compo
     BottomContactComponent,
     AddUserModalComponent,
     UserPageComponent,
-    CometTabComponent
+    CometTabComponent,
+    AddCometModalComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +42,11 @@ import { CometTabComponent } from './shared/components/comet-tab/comet-tab.compo
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    NgxMatSelectSearchModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [SnackbarComponent, BottomContactComponent, AddUserModalComponent]
+  entryComponents: [SnackbarComponent, BottomContactComponent, AddUserModalComponent, AddCometModalComponent]
 })
 export class AppModule { }
