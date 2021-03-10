@@ -1,3 +1,44 @@
-<div>
-
+<div class="centered">
+    <mat-card>
+        <button mat-fab color="warn" (click)="delete()" class="delete-fab"
+            aria-label="Example icon button with a delete icon">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <form [formGroup]="cometForm">
+            <div class="form-row">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Name</mat-label>
+                    <input [disabled]="!isEdit" matInput type="text" formControlName="name">
+                </mat-form-field>
+                <mat-form-field class="example-form-field">
+                    <mat-label>Available budget</mat-label>
+                    <input matInput type="number" formControlName="availableBudget">
+                    <mat-icon class="suffix" matSuffix>star_rate</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Lead user</mat-label>
+                    <mat-select formControlName="leadUserId">
+                        <mat-option>
+                        <ngx-mat-select-search
+                        formControlName="userFilter"
+                       placeholderLabel="Find user..." 
+                       noEntriesFoundLabel="'no matching user found'"></ngx-mat-select-search>
+                    </mat-option>
+                        <mat-option *ngFor="let item of searchUsers" [value]="item._id">
+                          {{item.firstname + ' ' + item.lastname}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+            </div>
+        </form>
+        <button mat-raised-button class="custom-btn-back left" (click)="back()">Back</button>
+        <div class="buttons-center">
+            <button *ngIf="isEdit" mat-raised-button class="custom-btn" (click)="update()">Update</button>
+            <button *ngIf="isEdit" mat-raised-button color="warn" (click)="changeEdit()">Cancel</button>
+            <button *ngIf="!isEdit && (this.comet.leadUserId || this.comet.leadUserId != '0')" mat-raised-button class="comet" (click)="openUser()">View lead</button>
+            <button *ngIf="!isEdit" mat-raised-button color="primary" (click)="changeEdit()">Edit</button>
+        </div>
+    </mat-card>
 </div>

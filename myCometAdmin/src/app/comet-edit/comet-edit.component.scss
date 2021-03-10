@@ -1,0 +1,56 @@
+mat-card {
+    width: 60%;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      margin-top: 2em;
+  }
+
+  .delete-fab {
+    position: absolute;
+      right: -1.5em;
+      top: -1.5em;
+  }
+
+  .form-row {
+    text-align: center;
+  }
+
+  .example-form-field {
+    width: 250px;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+
+  .buttons-center {
+    float: right;
+  }
+  
+  .custom-btn {
+    background-color: #F26E28;
+    margin-right: 0.5em;
+    color: white;
+  }
+  
+  .custom-btn-back{
+    color: white;
+    background-color: #616161;
+  }
+  
+  
+  .left {
+    float: left !important;
+  }
+
+  .comet {
+    background-color: #F26E28;
+    margin-right: 0.5em;
+    color: white;
+  }
+
+  .suffix {
+    opacity: 40%;
+}

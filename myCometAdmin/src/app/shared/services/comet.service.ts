@@ -16,7 +16,7 @@ export class CometService {
     return this.http.get(API_BASE_URL + 'comet');
   }
 
-  getCometById(cometId: number): Observable<Comet> {
+  getCometById(cometId: string): Observable<Comet> {
     return this.http.get(API_BASE_URL + 'comet/' + cometId)
   }
 

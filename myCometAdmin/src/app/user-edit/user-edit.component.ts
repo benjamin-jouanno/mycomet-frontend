@@ -20,6 +20,8 @@ export class UserEditComponent implements OnInit {
 
   isEdit: boolean = false;
   comets: Comet[] = [];
+  userId: string;
+  user: User = {}
 
   userForm = new FormGroup ({
     email: new FormControl('',[
@@ -39,8 +41,6 @@ export class UserEditComponent implements OnInit {
     private snackService: SnackService,
     private _location: Location,
     private cometService: CometService) { }
-  userId: number;
-  user: User;
   ngOnInit() {
     this.userForm.disable();
     this.cometService.getAllComets().subscribe(res => {
@@ -95,8 +95,6 @@ export class UserEditComponent implements OnInit {
           this.snackService.openSnackBar();
           this._location.back();
         });
-      // For more information about handling dismissals please visit
-      // https://sweetalert2.github.io/#handling-dismissals
       } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     })

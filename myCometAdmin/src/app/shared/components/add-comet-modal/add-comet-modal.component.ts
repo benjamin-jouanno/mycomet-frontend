@@ -40,7 +40,6 @@ export class AddCometModalComponent implements OnInit {
     });
     this.userForm.controls.userFilter.valueChanges.pipe(
       tap((filter) => {
-
         this.searchUsers = this.users.filter((user) => user.firstname.includes(filter)
           || user.lastname.includes(filter)
           || (user.firstname + '' + user.lastname).includes(filter));

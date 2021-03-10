@@ -12,7 +12,7 @@ export class UserService {
 
   constructor(private httpService: HttpClient) { }
 
-  getUser(userId: number): Observable<User> {
+  getUser(userId: string): Observable<User> {
     return this.httpService.get(API_BASE_URL + 'user/' + userId);
   }
 
@@ -20,11 +20,11 @@ export class UserService {
     return this.httpService.get(API_BASE_URL + 'users');
   }
 
-  updateUser(userId: number, user: User): Observable<any> {
+  updateUser(userId: string, user: User): Observable<any> {
     return this.httpService.put(API_BASE_URL + 'user/' + userId, user);
   }
 
-  deleteUser(userId: number): Observable<any> {
+  deleteUser(userId: string): Observable<any> {
     return this.httpService.delete(API_BASE_URL + 'user/' + userId);
   }
 

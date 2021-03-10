@@ -68,6 +68,7 @@ export class UserPageComponent implements OnInit {
   }
 
   displayComet(id): string {
-    return this.comets.find(item => item._id === id).name;
+    const temp = this.comets.find(item => item._id === id);
+    return temp ? temp.name : '';
   }
 }

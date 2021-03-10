@@ -36,7 +36,7 @@ export class CometTabComponent implements OnInit {
   }
 
   refreshData() {
-
+    this.getData();
   }
 
   openCometEdit(cometId) {
