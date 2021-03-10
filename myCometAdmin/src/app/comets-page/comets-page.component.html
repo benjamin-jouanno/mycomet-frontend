@@ -1,0 +1,40 @@
+<div class="content">
+    <mat-card>
+        <table mat-table [dataSource]="comets" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- firstname Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>name</th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+            <!-- lastname Column -->
+            <ng-container matColumnDef="leader">
+              <th mat-header-cell *matHeaderCellDef> Leader </th>
+              <td mat-cell *matCellDef="let element"> {{displayUser(element._id)}} </td>
+            </ng-container>
+          
+            <!-- commet Column -->
+            <ng-container matColumnDef="availableBudget">
+              <th mat-header-cell *matHeaderCellDef> Available budget </th>
+              <td mat-cell *matCellDef="let element">{{element.availableBudget}}</td>
+            </ng-container>
+            <!-- admin Column -->
+            <ng-container matColumnDef="view">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <span class="material-icons phone" (click)="openComet(element._id)">mode_edit</span>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <button (click)="addComet()" mat-fab class="delete-fab" aria-label="Example icon button with a delete icon">
+            <mat-icon class="add-icon">add</mat-icon>
+          </button>
+    </mat-card>
+</div>
+

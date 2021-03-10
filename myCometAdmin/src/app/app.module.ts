@@ -20,6 +20,7 @@ import { CometTabComponent } from './shared/components/comet-tab/comet-tab.compo
 import { AddCometModalComponent } from './shared/components/add-comet-modal/add-comet-modal.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { CometEditComponent } from './comet-edit/comet-edit.component';
+import { CometsPageComponent } from './comets-page/comets-page.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CometEditComponent } from './comet-edit/comet-edit.component';
     UserPageComponent,
     CometTabComponent,
     AddCometModalComponent,
-    CometEditComponent
+    CometEditComponent,
+    CometsPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,53 @@
+.content {
+    margin: 2em;
+    mat-card {
+        height: 80vh;
+    }
+}
+
+table {
+    width: 100%;
+    box-shadow: none !important;
+  }
+
+  .admin-cell {
+    float: right;
+    margin-top: -0em;
+    color: rgba(184, 184, 184, 0.87);
+}
+
+.admin {
+    color:#F26E28 !important;
+}
+
+.email {
+    color: #F26E28;
+}
+
+.phone {
+    cursor: pointer;
+    font-size: x-large;
+    float: right;
+    width: 30px;
+    color:#F26E28 !important;
+}
+
+.add-icon {
+    font-size: 3em;
+    position: absolute;
+    margin-top: -15px;
+    top: 23px;
+    right: 24px;
+}
+
+.delete-fab {
+    position: absolute;
+      right: 1.5em;
+      bottom: 1.5em;
+      background-color: #F26E28;
+  }
+
+  .stars {
+      font-size: 1.5em;
+      float: right;
+  }
