@@ -22,10 +22,16 @@ export class CometEditComponent implements OnInit {
   comet: Comet = {};
   users: User[];
   searchUsers: User[];
+  displayedColumns: string[] = ['firstname', 'lastname', 'view'];
   cometForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     leadUserId: new FormControl('', [Validators.required]),
     availableBudget: new FormControl('', [Validators.required]),
+    userFilter: new FormControl('', [Validators.required])
+  });
+
+  addUserForm = new FormGroup({
+    userId: new FormControl('', [Validators.required]),
     userFilter: new FormControl('', [Validators.required])
   });
 
@@ -115,10 +121,32 @@ export class CometEditComponent implements OnInit {
       this.userService.updateUser(tempComet.leadUserId, {cometId: this.comet._id}).subscribe();
       this.snackService.openSnackBar();
       this.changeEdit();
+      this.getUsers();
     })
   }
 
   openUser() {
     this.router.navigateByUrl('/user/' + this.comet.leadUserId);
+  }
+
+  filterUsers(): User[] {
+  return this.users.filter(user => user.cometId === this.comet._id);
+  }
+
+  addUserToComet(): void {
+    const userId = this.addUserForm.getRawValue().userId;
+    if (!userId) {return};
+    this.userService.updateUser(userId, {cometId: this.cometId}).subscribe(res => {
+      this.snackService.openSnackBar();
+      this.getUsers();
+      this.addUserForm.reset();
+    })
+  }
+
+  removeUserFromComet(userId: string) {
+    this.userService.updateUser(userId, {cometId: ''}).subscribe(res => {
+      this.snackService.openSnackBar();
+      this.getUsers();
+    });
   }
 }
